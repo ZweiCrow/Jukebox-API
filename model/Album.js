@@ -26,7 +26,7 @@ export const getAlbum = async (request, response, next)=>{
   try {
     const name = request.params.name
     const album = await Album.find({name: name})
-    response.status(200).json(album)
+    response.status(200).json(album[0])
   } catch (error) {
     next(error)
   }
