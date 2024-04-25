@@ -31,6 +31,15 @@ export const getAlbum = async (request, response, next)=>{
     next(error)
   }
 }
+export const getAlbumByArtist = async (request, response, next)=>{
+  try {
+    const name = request.params.name
+    const album = await Album.find({artist: name})
+    response.status(200).json(album[0])
+  } catch (error) {
+    next(error)
+  }
+}
 
 // POST
 // UPDATE
